@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ShramSaathi</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Sans+Gujarati:wght@400;600&display=swap">
+<style>
+:root{--p:#2167A5;--pl:#EAF3FA;--bg:#fff;--s:#F7F9FB;--t:#202B36;--t2:#667085;--b:#E5E9EF;--ok:#238636;--er:#D64545;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--p:#2F7DBF;--pl:#1B2D3F;--bg:#12181F;--s:#0B1015;--t:#EEF2F6;--t2:#A3AEBA;--b:#2A3541;--ok:#4CC163;--er:#F07575;color-scheme:dark}}
+:root[data-theme="dark"]{--p:#2F7DBF;--pl:#1B2D3F;--bg:#12181F;--s:#0B1015;--t:#EEF2F6;--t2:#A3AEBA;--b:#2A3541;--ok:#4CC163;--er:#F07575;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{font-size:16px;height:100%}html.big{font-size:19px}
+body{font-family:Inter,'Noto Sans Devanagari','Noto Sans Gujarati',system-ui,sans-serif;background:var(--s);color:var(--t);min-height:100%;display:flex;justify-content:center}
+#app{width:100%;max-width:430px;min-height:100dvh;background:var(--bg);display:flex;flex-direction:column;border-inline:1px solid var(--b)}
+header{padding:8px 12px 0}.r{display:flex;align-items:center;gap:2px;min-height:48px}.sp{flex:1}
+.ib{min-width:48px;height:48px;border:0;background:none;color:var(--t);border-radius:12px;display:grid;place-items:center;font:600 .9rem inherit;cursor:pointer;font-family:inherit}
+.ib:active,.btn:active,.opt:active{transform:scale(.98)}
+.ib[aria-pressed=true]{background:var(--pl);color:var(--p)}
+.pg{padding:0 12px 4px;font-size:.85rem;color:var(--t2)}.bar{height:4px;background:var(--b);border-radius:4px;margin-top:6px;overflow:hidden}.bar i{display:block;height:100%;background:var(--p);transition:width .3s}
+main{flex:1;padding:12px 24px;display:flex;flex-direction:column;gap:14px;animation:f .25s}
+@keyframes f{from{opacity:0}to{opacity:1}}
+.c{align-items:center;justify-content:center;text-align:center}
+h1{font-size:1.6rem;line-height:1.25;font-weight:700;outline:0}.d{font-size:1.1rem;line-height:1.5;color:var(--t2)}.eb{font-size:.9rem;color:var(--p);font-weight:600}
+.logo{width:88px;height:88px;border-radius:50%;background:var(--pl);display:grid;place-items:center;font-size:2.4rem}
+footer{padding:12px 24px 20px;display:flex;flex-direction:column;gap:10px}
+.btn{height:56px;border-radius:14px;border:1px solid var(--p);background:var(--p);color:#fff;font:600 1.05rem Inter,'Noto Sans Devanagari','Noto Sans Gujarati',sans-serif;cursor:pointer;width:100%;padding:0 16px}
+.btn.sec{background:var(--bg);color:var(--t);border-color:var(--b)}.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.sm{height:48px;width:auto;align-self:flex-start;font-size:.95rem}
+:focus-visible{outline:3px solid var(--p);outline-offset:2px}
+label{font-weight:600;font-size:1rem}
+.in{width:100%;height:56px;border:1.5px solid var(--b);border-radius:12px;padding:0 14px;font:1.1rem inherit;font-family:inherit;background:var(--bg);color:var(--t);margin-top:6px}
+.in:focus{border-color:var(--p);outline:3px solid var(--pl)}
+.ph{display:flex;gap:8px;align-items:center}.ph span{height:56px;margin-top:6px;display:grid;place-items:center;padding:0 12px;border:1.5px solid var(--b);border-radius:12px;color:var(--t2);background:var(--s);white-space:nowrap}
+.opt{display:flex;align-items:center;gap:12px;width:100%;min-height:56px;padding:10px 14px;border:1.5px solid var(--b);background:var(--bg);color:var(--t);border-radius:12px;font:1.05rem inherit;font-family:inherit;text-align:start;cursor:pointer}
+.opt.sel{border-color:var(--p);background:var(--pl);font-weight:600}.opt .k{margin-inline-start:auto;color:var(--p);font-weight:700}.opt .e{font-size:1.4rem;width:30px;text-align:center}
+.list{display:flex;flex-direction:column;gap:8px}.occ{gap:6px}.occ .opt{min-height:50px;padding:6px 14px}
+.err,.okm{font-size:.95rem;font-weight:500;min-height:1.3em}.err{color:var(--er)}.okm{color:var(--ok)}
+.ob{flex:1;min-width:0;height:60px;text-align:center;font:600 1.6rem inherit;font-family:inherit;border:1.5px solid var(--b);border-radius:12px;background:var(--bg);color:var(--t);padding:0}
+.ob:focus{border-color:var(--p);outline:3px solid var(--pl)}.ob.bad{border-color:var(--er)}.ob.good{border-color:var(--ok)}
+.ot{display:flex;gap:8px}.sm2{font-size:.9rem;color:var(--t2)}.demo{background:var(--s);border:1px dashed var(--b);border-radius:10px;padding:10px 12px;font-size:.95rem}.demo b{letter-spacing:3px;font-size:1.1rem;color:var(--t)}
+.row{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--b);font-size:1rem}.row span{color:var(--t2)}.row b{text-align:end;font-weight:600}
+.sec-h{display:flex;justify-content:space-between;align-items:center;margin-top:6px}.sec-h b{font-size:1.05rem}.lk{background:none;border:0;color:var(--p);font:600 1rem inherit;font-family:inherit;min-height:48px;padding:0 6px;cursor:pointer}
+.chk{display:flex;gap:12px;align-items:center;min-height:48px;font-weight:500}.chk input{width:26px;height:26px;accent-color:var(--p)}
+.st{display:flex;gap:14px;align-items:center;font-size:1.1rem}.st i{width:32px;height:32px;border-radius:50%;background:var(--pl);color:var(--p);display:grid;place-items:center;font-style:normal;font-weight:700;flex:none}
+.note{background:var(--pl);border-radius:10px;padding:10px 12px;font-size:.95rem}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.4);display:flex;align-items:flex-end;justify-content:center;z-index:9}.ov[hidden]{display:none}
+.sh{background:var(--bg);width:100%;max-width:430px;border-radius:18px 18px 0 0;padding:16px 24px calc(20px + env(safe-area-inset-bottom,0px));max-height:85dvh;overflow:auto}
+details{border-bottom:1px solid var(--b);padding:12px 0}summary{font-weight:600;cursor:pointer;min-height:28px}details p{color:var(--t2);margin-top:8px;line-height:1.5}
+.ok2{width:72px;height:72px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;font-size:2rem;font-weight:700}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body><div id="app"></div><div id="hp" class="ov" hidden></div>
+<script>
+const $=s=>document.querySelector(s);
+const L={en:'English',hi:'हिंदी',gu:'ગુજરાતી'};
+const T={
+en:{tag:'Your Digital Registration Companion.',hello:'Namaste! Welcome to ShramSaathi',helloD:'We will help you complete your registration, one simple step at a time.',start:'Start Registration',chooseLang:'Choose your language',cont:'Continue',back:'Back',introH:"Don’t worry. We are here to help.",introD:'Just follow a few simple steps to complete your registration.',i1:'Enter your mobile number.',i2:'Verify your number.',i3:'Fill in your details.',lets:"Let’s Start",
+mobH:'Enter your mobile number',mobD:'Use the mobile number linked to your Aadhaar.',mobPh:'Enter 10-digit mobile number',mobLbl:'Mobile number',send:'Send OTP',mobErr:'Please enter 10 numbers only.',
+otpH:'Verify your mobile number',otpD:'Enter the code sent to your mobile. We will help you.',noSw:"You don’t need to switch between screens.",demo:'Demo code (for testing only)',auto:'Auto-fill OTP',verify:'Verify',ready:'Your verification code is ready.',wrong:"The code doesn’t match. Please try again.",exp:'Your code has expired. You can request a new one.',ok:'Your mobile number has been verified!',resend:'Resend OTP',left:'Time left',
+step:'Step',pers:"Let’s get to know you",q_name:'What is your full name?',q_dob:'What is your date of birth?',q_gender:'Choose your gender',q_state:'Which state do you live in?',q_district:'Which district?',occH:'What work do you do?',occD:'Choose the work that you do.',workH:'Tell us about your work',q_workType:'What type of construction work do you do?',q_years:'How many years have you worked?',q_working:'Are you currently working?',addr:'Where do you live?',
+lName:'Full name',lDob:'Date of birth',lGen:'Gender',lSt:'State',lDi:'District',lWt:'Type of work',lYr:'Years worked',lCur:'Working now',lVi:'Village or town',lPin:'PIN code',lOcc:'Work',choose:'Choose…',
+male:'Male',female:'Female',oth:'Other',w1:'Mason',w2:'Helper / Labour',w3:'Steel / Bar work',w4:'Other work',y1:'Less than 1 year',y2:'1 to 3 years',y3:'3 to 5 years',y4:'More than 5 years',yes:'Yes',no:'No',
+occ:['Construction Worker','Carpenter','Electrician','Plumber','Painter','Street Vendor','Agricultural Worker','Domestic Worker','Other'],
+req:'Please fill this in to continue.',pinErr:'Please enter a 6-digit PIN code.',occErr:'Please choose one work.',confErr:'Please tick the box to continue.',
+revH:'Check your information',edit:'Edit',secP:'Personal details',secW:'Work details',secA:'Address',confirm:'I confirm that these details are correct.',done:'Complete Demo Registration',
+doneH:"You’re all done!",doneD:'You have successfully completed the ShramSaathi demo registration.',ref:'Demo reference',stat:'Status',statV:'Demo only. Not a real e-Shram account.',view:'View Summary',home:'Back to Home',
+help:'Help',speak:'Read aloud',stop:'Stop',big:'Large text',lang:'Language',close:'Close',restart:'Restart demo',noVoice:'Voice is not available for this language on this phone. Please read the text.',
+hq:['How do I enter my OTP?','What happens if my OTP expires?','What if I cannot read the instructions?','How can I change the language?'],
+ha:['Tap Auto-fill OTP and the code appears in the boxes. Then tap Verify. You can also type it.',"Don’t worry. Tap Resend OTP to receive a new verification code.",'Tap the speaker icon at the top. The phone will read the screen aloud.','Tap the language name at the top of the screen. Your answers are kept.']},
+hi:{tag:'आपका डिजिटल पंजीकरण साथी।',hello:'नमस्ते! श्रमसाथी में आपका स्वागत है',helloD:'हम एक-एक आसान कदम में आपका पंजीकरण पूरा करने में मदद करेंगे।',start:'पंजीकरण शुरू करें',chooseLang:'अपनी भाषा चुनें',cont:'आगे बढ़ें',back:'पीछे',introH:'चिंता न करें। हम आपकी मदद के लिए हैं।',introD:'पंजीकरण पूरा करने के लिए बस कुछ आसान कदम अपनाएँ।',i1:'अपना मोबाइल नंबर डालें।',i2:'अपना नंबर सत्यापित करें।',i3:'अपनी जानकारी भरें।',lets:'शुरू करें',
+mobH:'अपना मोबाइल नंबर डालें',mobD:'आधार से जुड़ा मोबाइल नंबर इस्तेमाल करें।',mobPh:'10 अंकों का मोबाइल नंबर',mobLbl:'मोबाइल नंबर',send:'OTP भेजें',mobErr:'कृपया केवल 10 अंक डालें।',
+otpH:'अपना मोबाइल नंबर सत्यापित करें',otpD:'आपके मोबाइल पर भेजा गया कोड डालें। हम आपकी मदद करेंगे।',noSw:'आपको स्क्रीन बदलने की ज़रूरत नहीं है।',demo:'डेमो कोड (केवल जाँच के लिए)',auto:'OTP अपने-आप भरें',verify:'सत्यापित करें',ready:'आपका सत्यापन कोड तैयार है।',wrong:'कोड मेल नहीं खाता। कृपया फिर कोशिश करें।',exp:'आपका कोड समाप्त हो गया है। आप नया कोड मँगा सकते हैं।',ok:'आपका मोबाइल नंबर सत्यापित हो गया है!',resend:'OTP फिर भेजें',left:'बचा समय',
+step:'चरण',pers:'आइए आपको जानें',q_name:'आपका पूरा नाम क्या है?',q_dob:'आपकी जन्म तिथि क्या है?',q_gender:'अपना लिंग चुनें',q_state:'आप किस राज्य में रहते हैं?',q_district:'कौन-सा ज़िला?',occH:'आप कौन-सा काम करते हैं?',occD:'जो काम आप करते हैं, उसे चुनें।',workH:'अपने काम के बारे में बताएँ',q_workType:'आप किस तरह का निर्माण कार्य करते हैं?',q_years:'आपने कितने साल काम किया है?',q_working:'क्या आप अभी काम कर रहे हैं?',addr:'आप कहाँ रहते हैं?',
+lName:'पूरा नाम',lDob:'जन्म तिथि',lGen:'लिंग',lSt:'राज्य',lDi:'ज़िला',lWt:'काम का प्रकार',lYr:'काम के साल',lCur:'अभी काम',lVi:'गाँव या शहर',lPin:'पिन कोड',lOcc:'काम',choose:'चुनें…',
+male:'पुरुष',female:'महिला',oth:'अन्य',w1:'राजमिस्त्री',w2:'मज़दूर / हेल्पर',w3:'सरिया का काम',w4:'दूसरा काम',y1:'1 साल से कम',y2:'1 से 3 साल',y3:'3 से 5 साल',y4:'5 साल से ज़्यादा',yes:'हाँ',no:'नहीं',
+occ:['निर्माण मज़दूर','बढ़ई','इलेक्ट्रीशियन','प्लंबर','पेंटर','रेहड़ी-पटरी वाला','खेतिहर मज़दूर','घरेलू कामगार','अन्य'],
+req:'आगे बढ़ने के लिए इसे भरें।',pinErr:'कृपया 6 अंकों का पिन कोड डालें।',occErr:'कृपया एक काम चुनें।',confErr:'आगे बढ़ने के लिए बॉक्स पर निशान लगाएँ।',
+revH:'अपनी जानकारी जाँचें',edit:'बदलें',secP:'व्यक्तिगत जानकारी',secW:'काम की जानकारी',secA:'पता',confirm:'मैं पुष्टि करता/करती हूँ कि ये जानकारी सही है।',done:'डेमो पंजीकरण पूरा करें',
+doneH:'आपका काम पूरा हुआ!',doneD:'आपने श्रमसाथी डेमो पंजीकरण सफलतापूर्वक पूरा कर लिया है।',ref:'डेमो संदर्भ संख्या',stat:'स्थिति',statV:'केवल डेमो। यह असली ई-श्रम खाता नहीं है।',view:'सारांश देखें',home:'होम पर जाएँ',
+help:'मदद',speak:'सुनें',stop:'रोकें',big:'बड़े अक्षर',lang:'भाषा',close:'बंद करें',restart:'डेमो फिर से शुरू करें',noVoice:'इस फ़ोन पर इस भाषा की आवाज़ उपलब्ध नहीं है। कृपया लिखा हुआ पढ़ें।',
+hq:['मैं अपना OTP कैसे डालूँ?','OTP समाप्त हो जाए तो क्या होगा?','अगर मैं निर्देश पढ़ न सकूँ तो?','भाषा कैसे बदलूँ?'],
+ha:['OTP अपने-आप भरें दबाएँ, कोड डिब्बों में आ जाएगा। फिर सत्यापित करें दबाएँ। आप खुद भी डाल सकते हैं।','चिंता न करें। OTP फिर भेजें दबाएँ, नया कोड मिल जाएगा।','ऊपर स्पीकर का निशान दबाएँ। फ़ोन स्क्रीन को पढ़कर सुनाएगा।','स्क्रीन के ऊपर भाषा का नाम दबाएँ। आपकी भरी जानकारी बनी रहेगी।']},
+gu:{tag:'તમારો ડિજિટલ નોંધણી સાથી.',hello:'નમસ્તે! શ્રમસાથીમાં આપનું સ્વાગત છે',helloD:'અમે એક-એક સરળ પગલામાં તમારી નોંધણી પૂર્ણ કરવામાં મદદ કરીશું.',start:'નોંધણી શરૂ કરો',chooseLang:'તમારી ભાષા પસંદ કરો',cont:'આગળ વધો',back:'પાછળ',introH:'ચિંતા ન કરો. અમે મદદ માટે છીએ.',introD:'નોંધણી પૂર્ણ કરવા માટે થોડા સરળ પગલાં અનુસરો.',i1:'તમારો મોબાઇલ નંબર દાખલ કરો.',i2:'તમારો નંબર ચકાસો.',i3:'તમારી વિગતો ભરો.',lets:'શરૂ કરીએ',
+mobH:'તમારો મોબાઇલ નંબર દાખલ કરો',mobD:'આધાર સાથે જોડાયેલ મોબાઇલ નંબર વાપરો.',mobPh:'10 અંકનો મોબાઇલ નંબર',mobLbl:'મોબાઇલ નંબર',send:'OTP મોકલો',mobErr:'કૃપા કરી ફક્ત 10 અંક દાખલ કરો.',
+otpH:'તમારો મોબાઇલ નંબર ચકાસો',otpD:'તમારા મોબાઇલ પર મોકલેલો કોડ દાખલ કરો. અમે મદદ કરીશું.',noSw:'તમારે સ્ક્રીન બદલવાની જરૂર નથી.',demo:'ડેમો કોડ (ફક્ત ચકાસણી માટે)',auto:'OTP આપમેળે ભરો',verify:'ચકાસો',ready:'તમારો ચકાસણી કોડ તૈયાર છે.',wrong:'કોડ મેળ ખાતો નથી. કૃપા કરી ફરી પ્રયાસ કરો.',exp:'તમારો કોડ સમાપ્ત થઈ ગયો છે. તમે નવો કોડ મંગાવી શકો છો.',ok:'તમારો મોબાઇલ નંબર ચકાસાઈ ગયો છે!',resend:'OTP ફરી મોકલો',left:'બાકી સમય',
+step:'પગલું',pers:'ચાલો તમને ઓળખીએ',q_name:'તમારું પૂરું નામ શું છે?',q_dob:'તમારી જન્મ તારીખ શું છે?',q_gender:'તમારું લિંગ પસંદ કરો',q_state:'તમે કયા રાજ્યમાં રહો છો?',q_district:'કયો જિલ્લો?',occH:'તમે કયું કામ કરો છો?',occD:'તમે જે કામ કરો છો તે પસંદ કરો.',workH:'તમારા કામ વિશે જણાવો',addr:'તમે ક્યાં રહો છો?',
+male:'પુરુષ',female:'સ્ત્રી',oth:'અન્ય',yes:'હા',no:'ના',
+occ:['બાંધકામ મજૂર','સુથાર','ઇલેક્ટ્રિશિયન','પ્લમ્બર','પેઇન્ટર','ફેરિયો','ખેતમજૂર','ઘરકામ કરનાર','અન્ય'],
+req:'આગળ વધવા માટે આ ભરો.',pinErr:'કૃપા કરી 6 અંકનો પિન કોડ દાખલ કરો.',occErr:'કૃપા કરી એક કામ પસંદ કરો.',confErr:'આગળ વધવા માટે બોક્સ પર ટિક કરો.',
+revH:'તમારી માહિતી તપાસો',edit:'બદલો',confirm:'હું પુષ્ટિ કરું છું કે આ વિગતો સાચી છે.',done:'ડેમો નોંધણી પૂર્ણ કરો',doneH:'તમારું કામ પૂરું થયું!',doneD:'તમે શ્રમસાથી ડેમો નોંધણી સફળતાપૂર્વક પૂર્ણ કરી છે.',home:'હોમ પર જાઓ',view:'સારાંશ જુઓ',
+help:'મદદ',speak:'સાંભળો',stop:'બંધ કરો',big:'મોટા અક્ષરો',lang:'ભાષા',close:'બંધ કરો',noVoice:'આ ફોન પર આ ભાષાનો અવાજ ઉપલબ્ધ નથી. કૃપા કરી લખેલું વાંચો.'}};
+const S={lang:'en',big:0,i:0,d:{},err:'',conf:0,ret:null,from:1,sp:0};
+try{const z=JSON.parse(localStorage.getItem('ss')||'{}');if(z.lang)S.lang=z.lang;S.big=z.big?1:0}catch(e){}
+const t=k=>T[S.lang][k]??T.en[k]??k;
+const ST=['splash','welcome','lang','intro','mobile','otp','name','dob','gender','state','district','occ','workType','years','working','addr','review','success'];
+const G={mobile:1,otp:2,name:3,dob:3,gender:3,state:3,district:3,occ:4,workType:5,years:5,working:5,addr:6,review:7};
+const STATES='Andhra Pradesh,Assam,Bihar,Chhattisgarh,Delhi,Goa,Gujarat,Haryana,Himachal Pradesh,Jharkhand,Karnataka,Kerala,Madhya Pradesh,Maharashtra,Odisha,Punjab,Rajasthan,Tamil Nadu,Telangana,Uttar Pradesh,Uttarakhand,West Bengal,Other'.split(',');
+const Q={name:['text'],dob:['date'],gender:['ch','male','female','oth'],state:['sel'],district:['text'],workType:['ch','w1','w2','w3','w4'],years:['ch','y1','y2','y3','y4'],working:['ch','yes','no']};
+const LB={name:'lName',dob:'lDob',gender:'lGen',state:'lSt',district:'lDi',workType:'lWt',years:'lYr',working:'lCur'};
+const EM=['👷','🪚','⚡','🔧','🎨','🛒','🌾','🏠','⋯'];
+const ic=p=>`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${p}</svg>`;
+const I={back:ic('<path d="M15 18l-6-6 6-6"/>'),spk:ic('<path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.5 8.5a5 5 0 010 7"/>'),stp:ic('<rect x="6" y="6" width="12" height="12" rx="2"/>'),hlp:ic('<circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 015.8 1c0 2-3 3-3 3M12 17h.01"/>')};
+let tm,sto;
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const B=(l,f,o={})=>`<button class="btn ${o.s?'sec':''}" ${o.dis?'disabled':''} ${o.id?'id='+o.id:''} onclick="${f}">${l}</button>`;
+const er=()=>S.err?'⚠ '+t(S.err):'';
+const save=()=>{try{localStorage.setItem('ss',JSON.stringify({lang:S.lang,big:S.big}))}catch(e){}};
+function go(n){S.i=n;S.err='';stopSay();render();scrollTo(0,0)}
+function openLang(){S.from=S.i;go(2)}
+function setLang(l){S.lang=l;document.documentElement.lang=l;save();render()}
+function big(){S.big=!S.big;document.documentElement.classList.toggle('big',!!S.big);save();render()}
+function back(){const s=ST[S.i];S.ret=null;go(s=='lang'?S.from:S.i-1)}
+function restart(){S.d={};S.conf=0;S.ret=null;S.ver=0;S.sum=0;closeHelp();go(1)}
+function genOtp(){S.otp=String(Math.floor(100000+Math.random()*900000));S.exp=Date.now()+60000;S.ent=['','','','','',''];S.ver=0;S.msg='ready'}
+function nx(){const s=ST[S.i],d=S.d;let e='';
+if(s=='mobile'){if(!/^\d{10}$/.test(d.mob||''))e='mobErr';else{genOtp();return go(5)}}
+else if(s=='name'||s=='district'){if(!(d[s]||'').trim())e='req'}
+else if(Q[s]){if(!d[s])e='req'}
+else if(s=='occ'){if(d.occ==null)e='occErr'}
+else if(s=='addr'){if(!(d.village||'').trim())e='req';else if(!/^\d{6}$/.test(d.pin||''))e='pinErr'}
+else if(s=='review'){if(!S.conf)e='confErr';else{S.ref='DEMO-'+Math.floor(100000+Math.random()*900000);return go(S.i+1)}}
+if(e){S.err=e;return render()}
+if(S.ret===S.i){S.ret=null;return go(ST.indexOf('review'))}
+go(S.i+1)}
+function ed(a,b){S.ret=ST.indexOf(b);go(ST.indexOf(a))}
+function mob(el){const r=el.value,c=r.replace(/\D/g,'').slice(0,10);el.value=c;S.d.mob=c;S.err=/\D/.test(r)?'mobErr':'';$('#e').textContent=er();$('#go').disabled=c.length!=10}
+function pick(k,v){S.d[k]=v;S.err='';render()}
+function field(k){return`<div><label for="f">${t(LB[k])}</label>${Q[k][0]=='sel'?`<select id="f" class="in" onchange="S.d.state=this.value;S.err='';$('#e').textContent=''"><option value="">${t('choose')}</option>${STATES.map(x=>`<option ${S.d.state==x?'selected':''}>${x}</option>`).join('')}</select>`:`<input id="f" class="in" type="${Q[k][0]}" ${k=='dob'?`max="${new Date().toISOString().slice(0,10)}"`:''} autocomplete="off" value="${esc(S.d[k])}" oninput="S.d['${k}']=this.value;S.err='';$('#e').textContent=''">`}</div>`}
+function row(l,v){return`<div class="row"><span>${l}</span><b>${esc(v)||'—'}</b></div>`}
+function secs(){const d=S.d;return[[t('secP'),'name','district',[[t('lName'),d.name],[t('lDob'),d.dob],[t('lGen'),d.gender&&t(d.gender)],[t('lSt'),d.state],[t('lDi'),d.district]]],
+[t('secW'),'occ','working',[[t('lOcc'),t('occ')[d.occ]],[t('lWt'),d.workType&&t(d.workType)],[t('lYr'),d.years&&t(d.years)],[t('lCur'),d.working&&t(d.working)]]],
+[t('secA'),'addr','addr',[[t('lVi'),d.village],[t('lDi'),d.district],[t('lSt'),d.state],[t('lPin'),d.pin]]]]}
+function view(s){const d=S.d;
+if(s=='splash'){setTimeout(()=>{if(S.i==0)go(1)},1800);return{c:1,h:'ShramSaathi',d:t('tag'),logo:1}}
+if(s=='welcome')return{c:1,logo:1,h:t('hello'),d:t('helloD'),b:`<button class="btn sec sm" onclick="openLang()">🌐 ${L[S.lang]}</button>`,f:B(t('start'),'openLang()')};
+if(s=='lang')return{h:t('chooseLang'),b:`<div class="list" role="radiogroup">${Object.keys(L).map(k=>`<button class="opt ${S.lang==k?'sel':''}" role="radio" aria-checked="${S.lang==k}" onclick="setLang('${k}')" style="font-size:1.2rem">${L[k]}${S.lang==k?'<span class="k">✓</span>':''}</button>`).join('')}</div>`,f:B(t('cont'),`go(S.from>2?S.from:3)`)};
+if(s=='intro')return{h:t('introH'),d:t('introD'),b:['i1','i2','i3'].map((k,j)=>`<div class="st"><i>${j+1}</i>${t(k)}</div>`).join(''),f:B(t('lets'),'go(4)')};
+if(s=='mobile')return{h:t('mobH'),d:t('mobD'),b:`<div><label for="f">${t('mobLbl')}</label><div class="ph"><span>+91</span><input id="f" class="in" type="tel" inputmode="numeric" maxlength="14" autocomplete="off" placeholder="${t('mobPh')}" value="${esc(d.mob)}" oninput="mob(this)"></div></div>`,f:B(t('send'),'nx()',{id:'go',dis:!/^\d{10}$/.test(d.mob||'')})};
+if(s=='otp')return{h:t('otpH'),d:t('otpD'),b:`<div class="ot" role="group" aria-label="OTP" onpaste="pst(event)">${[0,1,2,3,4,5].map(j=>`<input class="ob" inputmode="numeric" maxlength="1" autocomplete="one-time-code" aria-label="${j+1}/6" oninput="oin(${j},this)" onkeydown="okd(${j},event)">`).join('')}</div><div id="m" role="status" aria-live="polite"></div><div class="sm2" id="tm"></div><div class="demo">${t('demo')}: <b id="dc">${S.otp}</b></div><button class="btn sec sm" onclick="autoFill()">✨ ${t('auto')}</button><p class="sm2">${t('noSw')}</p>`,f:B(t('verify'),'otpMain()',{id:'go',dis:1})+`<button class="btn sec" id="rs" onclick="genOtp();otpUI();$('.ob').focus()" disabled>${t('resend')}</button>`};
+if(Q[s])return{eb:S.i<12?t('pers'):t('workH'),h:t('q_'+s),b:Q[s][0]=='ch'?`<div class="list">${Q[s].slice(1).map(o=>`<button class="opt ${d[s]==o?'sel':''}" role="radio" aria-checked="${d[s]==o}" onclick="pick('${s}','${o}')">${t(o)}${d[s]==o?'<span class="k">✓</span>':''}</button>`).join('')}</div>`:field(s),f:B(t('cont'),'nx()')};
+if(s=='occ')return{h:t('occH'),d:t('occD'),b:`<div class="list occ" role="radiogroup">${t('occ').map((o,j)=>`<button class="opt ${d.occ==j?'sel':''}" role="radio" aria-checked="${d.occ==j}" onclick="pick('occ',${j})"><span class="e" aria-hidden="true">${EM[j]}</span>${o}${d.occ==j?'<span class="k">✓</span>':''}</button>`).join('')}</div>`,f:B(t('cont'),'nx()')};
+if(s=='addr')return{h:t('addr'),b:`<div><label for="f">${t('lVi')}</label><input id="f" class="in" autocomplete="off" value="${esc(d.village)}" oninput="S.d.village=this.value;S.err='';$('#e').textContent=''"></div><div><label for="pn">${t('lPin')}</label><input id="pn" class="in" inputmode="numeric" maxlength="6" value="${esc(d.pin)}" oninput="this.value=this.value.replace(/\\D/g,'');S.d.pin=this.value;S.err='';$('#e').textContent=''"></div>`,f:B(t('cont'),'nx()')};
+if(s=='review')return{h:t('revH'),b:secs().map(x=>`<div><div class="sec-h"><b>${x[0]}</b><button class="lk" onclick="ed('${x[1]}','${x[2]}')">${t('edit')}</button></div>${x[3].map(r=>row(r[0],r[1])).join('')}</div>`).join('')+`<label class="chk"><input type="checkbox" ${S.conf?'checked':''} onchange="S.conf=this.checked?1:0;S.err='';$('#e').textContent=''">${t('confirm')}</label>`,f:B(t('done'),'nx()')};
+if(s=='success')return{c:1,ok:1,h:t('doneH'),d:t('doneD'),b:`<div style="width:100%;text-align:start">${row(t('lName'),d.name)}${row(t('lOcc'),t('occ')[d.occ])}${row(t('stat'),t('statV'))}${row(t('ref'),S.ref)}${S.sum?secs().map(x=>x[3].map(r=>row(r[0],r[1])).join('')).join(''):''}</div>`,f:B(t('view'),'S.sum=!S.sum;render()',{s:1})+B(t('home'),'restart()')}}
+function render(){clearInterval(tm);const s=ST[S.i],v=view(s),g=G[s];
+document.documentElement.classList.toggle('big',!!S.big);
+$('#app').innerHTML=(s=='splash'?'':`<header><div class="r">${S.i>=2&&s!='success'?`<button class="ib" onclick="back()" aria-label="${t('back')}">${I.back}</button>`:''}<span class="sp"></span><button class="ib" aria-pressed="${!!S.big}" onclick="big()" aria-label="${t('big')}">A+</button>${S.i>=3?`<button class="ib" onclick="openLang()" aria-label="${t('lang')}">${L[S.lang]}</button>`:''}<button class="ib" onclick="openHelp()" aria-label="${t('help')}">${I.hlp}</button><button class="ib" id="sp" onclick="sayNow()" aria-label="${t('speak')}">${S.sp?I.stp:I.spk}</button></div>${g?`<div class="pg">${t('step')} ${g} / 7<div class="bar"><i style="width:${S.i/(ST.length-2)*100}%"></i></div></div>`:''}</header>`)+
+`<main class="${v.c?'c':''}">${v.logo?'<div class="logo" aria-hidden="true">🤝</div>':''}${v.ok?'<div class="ok2" aria-hidden="true">✓</div>':''}${v.eb?`<div class="eb">${v.eb}</div>`:''}<h1 tabindex="-1">${v.h}</h1>${v.d?`<p class="d">${v.d}</p>`:''}<div id="nt" class="note" hidden></div>${v.b||''}<p id="e" class="err" role="alert">${er()}</p></main>${v.f?`<footer>${v.f}</footer>`:''}`;
+const f=$('#f');if(f&&s!='mobile'&&s!='dob')f.focus();else if(s=='mobile')f.focus();
+if(s=='otp'){otpUI();tm=setInterval(()=>{if(ST[S.i]=='otp'){if(Date.now()>=S.exp&&!S.ver&&S.msg!='expired')S.msg='expired';otpUI()}},500);$('.ob').focus()}}
+/* OTP */
+function otpUI(){const x=S.exp-Date.now(),ex=x<=0&&!S.ver,bx=document.querySelectorAll('.ob');if(!bx.length)return;$('#dc').textContent=S.otp;
+bx.forEach((b,j)=>{b.value=S.ent[j];b.className='ob'+(S.msg=='wrong'?' bad':S.ver?' good':'');b.disabled=S.ver||ex});
+$('#tm').textContent=S.ver||ex?'':t('left')+' 0:'+String(Math.max(0,Math.ceil(x/1000))).padStart(2,'0');
+const m=$('#m'),M={ready:['okm','ready'],wrong:['err','wrong'],expired:['err','exp'],verified:['okm','ok']}[S.ver?'verified':S.msg];
+m.className=M?M[0]:'';m.textContent=M?(M[0]=='err'?'⚠ ':'✓ ')+t(M[1]):'';
+$('#rs').disabled=!ex;const g=$('#go');g.disabled=!S.ver&&(ex||S.ent.join('').length<6);g.textContent=S.ver?t('cont'):t('verify')}
+function oin(j,el){const v=el.value.replace(/\D/g,'').slice(-1);S.ent[j]=v;if(S.msg=='wrong')S.msg='';otpUI();if(v&&j<5)document.querySelectorAll('.ob')[j+1].focus()}
+function okd(j,e){const bx=document.querySelectorAll('.ob');if(e.key=='Backspace'&&!bx[j].value&&j>0){S.ent[j-1]='';otpUI();bx[j-1].focus()}if(e.key=='Enter')otpMain()}
+function pst(e){const c=(e.clipboardData.getData('text')||'').replace(/\D/g,'').slice(0,6);if(!c)return;e.preventDefault();S.ent=[0,1,2,3,4,5].map(j=>c[j]||'');S.msg='';otpUI()}
+function autoFill(){if(Date.now()>=S.exp)return;S.ent=S.otp.split('');S.msg='ready';otpUI();$('#go').focus()}
+function otpMain(){if(S.ver)return go(6);if(Date.now()>=S.exp){S.msg='expired';return otpUI()}if(S.ent.join('')==S.otp)S.ver=1;else S.msg='wrong';otpUI()}
+/* Voice */
+function stopSay(){try{speechSynthesis.cancel()}catch(e){}S.sp=0;const b=$('#sp');if(b)b.innerHTML=I.spk}
+function sayNow(){if(S.sp)return stopSay();const q=s=>($(s)||{}).textContent||'';const txt=[q('h1'),q('.d'),q('#m')||'',q('#e').replace('⚠','')].join('. ');
+const nt=$('#nt');if(!('speechSynthesis' in window)){nt.textContent=t('noVoice');nt.hidden=false;return}
+const vs=speechSynthesis.getVoices(),v=vs.find(x=>x.lang.toLowerCase().replace('_','-').startsWith(S.lang));
+if(S.lang!='en'&&vs.length&&!v){nt.textContent=t('noVoice');nt.hidden=false;return}
+speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(txt);u.lang={en:'en-IN',hi:'hi-IN',gu:'gu-IN'}[S.lang];u.rate=.8;if(v)u.voice=v;
+u.onend=u.onerror=()=>{S.sp=0;const b=$('#sp');if(b)b.innerHTML=I.spk};S.sp=1;$('#sp').innerHTML=I.stp;speechSynthesis.speak(u)}
+/* Help */
+function openHelp(){const h=$('#hp');h.innerHTML=`<div class="sh" role="dialog" aria-modal="true" aria-label="${t('help')}"><div class="r"><h1 style="font-size:1.3rem">${t('help')}</h1><span class="sp"></span><button class="lk" onclick="closeHelp()">${t('close')}</button></div>${(t('hq')).map((q,j)=>`<details><summary>${q}</summary><p>${t('ha')[j]}</p></details>`).join('')}<div style="margin-top:14px">${B(t('restart'),'restart()',{s:1})}</div></div>`;h.hidden=false;h.querySelector('.lk').focus()}
+function closeHelp(){$('#hp').hidden=true}
+$('#hp').addEventListener('click',e=>{if(e.target.id=='hp')closeHelp()});
+document.addEventListener('keydown',e=>{if(e.key=='Escape')closeHelp()});
+document.documentElement.lang=S.lang;render();
+</script></body></html>
